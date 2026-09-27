@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KELAS KITA — Absensi 📚</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND DECORATION -->
+    <div class="bg-decoration">
+        <span class="bubble b1">⭐</span>
+        <span class="bubble b2">🌈</span>
+        <span class="bubble b3">✨</span>
+        <span class="bubble b4">☁️</span>
+        <span class="bubble b5">🎈</span>
+        <span class="bubble b6">🍀</span>
+        <span class="bubble b7">💫</span>
+        <span class="bubble b8">📚</span>
+    </div>
+
+    <!-- MUSIC -->
+    <audio
+        id="backgroundMusic"
+        src="https://files.catbox.moe/ay90wc.mp3"
+        loop
+        preload="auto">
+    </audio>
+
+    <button class="music-button" id="musicButton">
+        <span id="musicIcon">🔇</span>
+        <span id="musicText">MUSIK OFF</span>
+    </button>
+
+    <main class="page">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="mascot">
+                <div class="mascot-face">
+                    <span class="eye left">•</span>
+                    <span class="eye right">•</span>
+                    <span class="mouth">ᴗ</span>
+                </div>
+
+                <span class="mascot-star">⭐</span>
+            </div>
+
+            <div class="hero-badge">
+                🏫 ABSENSI KELAS
+            </div>
+
+            <h1>
+                KELAS <span>KITA</span> 📚
+            </h1>
+
+            <p class="hero-description">
+                👋 Hai! Jangan lupa absen hari ini ya!
+                Pilih nama kamu, tentukan status kehadiran,
+                lalu kirim absensinya. Gampang banget! 🎉
+            </p>
+
+            <div class="mini-stats">
+                <div>
+                    <span>📝</span>
+                    <b>ISI ABSEN</b>
+                </div>
+
+                <div>
+                    <span>💬</span>
+                    <b>KIRIM</b>
+                </div>
+
+                <div>
+                    <span>🎉</span>
+                    <b>SELESAI</b>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- MAIN CARD -->
+        <section class="attendance-card">
+
+            <div class="card-top">
+                <div>
+                    <span class="tiny-label">📋 FORM ABSENSI</span>
+                    <h2>Yuk, absen dulu! 👋</h2>
+                </div>
+
+                <div class="card-emoji">😎</div>
+            </div>
+
+
+            <form id="attendanceForm">
+
+                <!-- NAME -->
+                <div class="form-section">
+
+                    <label for="name">
+                        👤 Nama kamu
+                    </label>
+
+                    <div class="input-wrapper">
+                        <span>✏️</span>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Tulis nama kamu..."
+                            maxlength="40"
+                            autocomplete="name"
+                            required>
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+                <div class="form-section">
+
+                    <label>
+                        📌 Kamu hari ini...
+                    </label>
+
+                    <div class="status-grid">
+
+                        <button
+                            type="button"
+                            class="status-card hadir"
+                            data-status="Hadir"
+                            data-emoji="😎">
+
+                            <span class="status-emoji">😎</span>
+
+                            <span class="status-title">
+                                Hadir
+                            </span>
+
+                            <small>
+                                Aku datang! 🚀
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="status-card izin"
+                            data-status="Izin"
+                            data-emoji="🙋">
+
+                            <span class="status-emoji">🙋</span>
+
+                            <span class="status-title">
+                                Izin
+                            </span>
+
+                            <small>
+                                Ada keperluan 📢
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="status-card sakit"
+                            data-status="Sakit"
+                            data-emoji="🤒">
+
+                            <span class="status-emoji">🤒</span>
+
+                            <span class="status-title">
+                                Sakit
+                            </span>
+
+                            <small>
+                                Lagi kurang sehat 💊
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="status-card alpha"
+                            data-status="Alpha"
+                            data-emoji="😴">
+
+                            <span class="status-emoji">😴</span>
+
+                            <span class="status-title">
+                                Alpha
+                            </span>
+
+                            <small>
+                                Tidak hadir 💤
+                            </small>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SELECTED STATUS -->
+                <div class="selected-status" id="selectedStatus">
+
+                    <span id="selectedEmoji">👀</span>
+
+                    <div>
+                        <small>Status yang dipilih</small>
+                        <strong id="selectedText">
+                            Belum memilih
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitBtn">
+
+                    <span>🚀</span>
+                    <span>KIRIM ABSEN</span>
+                    <span>✨</span>
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="about-card">
+
+            <div class="about-icon">
+                💡
+            </div>
+
+            <div class="about-content">
+
+                <span class="tiny-label">
+                    🌟 TENTANG WEBSITE
+                </span>
+
+                <h3>
+                    Apa itu KELAS KITA?
+                </h3>
+
+                <p>
+                    KELAS KITA adalah website absensi sederhana
+                    untuk membantu teman-teman mencatat kehadiran
+                    dengan cara yang lebih cepat, seru, dan menyenangkan. 🎒✨
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CREATOR -->
+        <section class="creator-card">
+
+            <div class="creator-avatar">
+                🧑‍💻
+            </div>
+
+            <div class="creator-info">
+
+                <span>
+                    💻 WEBSITE CREATOR
+                </span>
+
+                <strong>
+                    Tim KELAS KITA
+                </strong>
+
+                <small>
+                    Dibuat dengan ❤️, ☕ dan banyak kode ✨
+                </small>
+
+            </div>
+
+            <div class="creator-decoration">
+                🚀
+            </div>
+
+        </section>
+
+
+        <footer>
+            <span>📚 KELAS KITA</span>
+            <span>•</span>
+            <span>Absensi jadi lebih seru! 🎉</span>
+        </footer>
+
+    </main>
+
+
+    <!-- SUCCESS MODAL -->
+    <div class="modal-overlay" id="modal">
+
+        <div class="success-modal">
+
+            <button class="modal-close" id="closeModal">
+                ×
+            </button>
+
+            <div class="success-animation">
+                🎉
+            </div>
+
+            <h2>
+                Absen berhasil! 🎊
+            </h2>
+
+            <p>
+                Pesan absensimu sudah disiapkan
+                dan otomatis dicopy. Tinggal buka grup
+                lalu kirim! 💬
+            </p>
+
+            <div class="message-box">
+                <pre id="messagePreview"></pre>
+            </div>
+
+            <div class="modal-actions">
+
+                <button
+                    class="copy-button"
+                    id="copyBtn">
+                    📋 COPY LAGI
+                </button>
+
+                <button
+                    class="whatsapp-button"
+                    id="openWhatsapp">
+                    💬 BUKA GRUP
+                </button>
+
+            </div>
+
+            <div class="modal-tip">
+                💡 Pesan sudah dicopy → buka grup → tinggal tempel & kirim!
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+
+        <span id="toastIcon">
+            ✅
+        </span>
+
+        <span id="toastText">
+            Berhasil!
+        </span>
+
+    </div>
+
+
+    <!-- CONFETTI -->
+    <div id="confetti"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
